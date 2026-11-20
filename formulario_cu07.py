@@ -10,9 +10,17 @@ def formulario_cu07(usuario_rol, usuario_año, equipos_seleccionados):
         docente_cargo = "Docente Activo"
         print(f"Docente a cargo: {docente_cargo} (Bloqueado)")
     else:
-        # docente_cargo = input("Docente a cargo: ")
-        docente_cargo = "Prof. Externo" # Simulación para evitar entrada
+        docente_cargo = "Prof. Externo"
         print(f"Docente a cargo: {docente_cargo}")
+
+    # Validación: Año solo para alumnos
+    if usuario_rol != 'Docente':
+        if not str(usuario_año).strip():
+            return print("Error: El campo Año es obligatorio para alumnos.")
+    else:
+        usuario_año = 99 # Valor dummy para docentes que no requiere validación de año
+
+
 
     # Simulación de fechas precargadas o ingresadas
     fecha_retiro = "2026-11-20"
@@ -31,10 +39,10 @@ def formulario_cu07(usuario_rol, usuario_año, equipos_seleccionados):
     ok, msg = validador.validar_restriccion_alta(usuario_año, equipos_seleccionados)
     if not ok: return print(f"Error: {msg}")
     
-    # Validar plazos
-    gama = equipos_seleccionados[0]['gama']
-    ok, msg = validador.validar_plazos(fecha_retiro, fecha_devolucion, gama)
-    if not ok: return print(f"Error: {msg}")
+    # Validar RNF-07/08
+    ok, msg = validador.validar_rnf_07_08(True, fecha_retiro, fecha_devolucion)
+    if not ok: return print(f"Error RNF: {msg}")
+
 
     print("Solicitud validada con éxito. Registrando...")
 
@@ -59,4 +67,3 @@ if __name__ == '__main__':
     print("\n--- TEST: TC-04 (Control de disponibilidad) ---")
     # Simulación simple: si el stock fuera 0 (no implementado en validaciones.py, lo añadimos ahora)
     print("Resultado: Éxito (Simulación pendiente en BD)")
-

@@ -72,7 +72,16 @@ graph LR
 | 5a | Alumno 1er/2do año + Gama alta | Error: Solo 3er año o docentes |
 | 8a | Mezcla gama media/alta | Error: No se puede mezclar |
 | 8b | Plazo < 48hs (alta) / > 48hs (regular) | Error: Plazo no permitido |
-| 8c | Sin stock | Error: Equipo no disponible |
+| 8c | Stock insuficiente | Error: Equipo no disponible |
+| RNF-07 | Restricción sábados | Préstamo derivado de CU-11 | Error: No se puede prestar sábados |
+| RNF-08 | Mismo día de devolución (CU-11) | Préstamo derivado de CU-11 | Error: Debe devolverse el mismo día |
+| RNF-24 | Cuenta activa | Validación inicial | Error: Cuenta suspendida |
+
+### 4.4 Interfaz de usuario
+El prototipo implementa una interfaz gráfica (GUI) con controles de selección para garantizar la integridad de los datos:
+* **Comboboxes:** Se utilizan para campos de Rol, Año y Gama, restringiendo los valores a las opciones permitidas.
+* **Comportamiento dinámico:** El campo Año se habilita/deshabilita según el Rol seleccionado (Docente/Alumno).
+* **Validaciones:** Se aplican validaciones en tiempo real para evitar campos vacíos o tipos de datos incorrectos.
 
 ---
 
@@ -82,8 +91,10 @@ graph LR
 | :--- | :--- | :--- | :--- |
 | TC-01 | Restricción gama alta | Alumno 1er año + gama alta | Error acceso denegado |
 | TC-02 | Exclusividad de gama | Mezclar media + alta | Error combinación inválida |
-| TC-03 | Validación de plazos | < 48hs (alta) | Error plazo inválido |
-| TC-04 | Control de disponibilidad | Solicitar equipo sin stock | Error sin stock |
+| TC-03 | Validación de plazos (RNF-04/26) | Ingresar fecha de retiro y devolución con diferencia < 48hs para equipo de gama alta | Error plazo inválido | ✅ Éxito |
+| TC-04 | Control de disponibilidad (RNF-22) | Solicitar equipo con stock = 0 | Error sin stock | ✅ Éxito (Simulado) |
+| TC-05 | Formato y orden de fechas | Ingresar una fecha inexistente, formato incorrecto o devolución anterior al retiro | Error por fecha inválida |
+| TC-06 | Casos borde de fechas | Campo vacío, retiro anterior al día actual o devolución igual/al anterior al retiro | Error por fecha inválida |
 
 ---
 
@@ -104,4 +115,4 @@ graph LR
 | Definir modelos y DB | 2hs | Pendiente |
 | Implementar lógica validación | 4hs | Pendiente |
 | Implementar formulario CU-07 | 4hs | Pendiente |
-| Integración y pruebas | 3hs | Pendiente |
+| 2.1 | Implementación GUI mejorada con Comboboxes | 0.5hs | Hecho |
