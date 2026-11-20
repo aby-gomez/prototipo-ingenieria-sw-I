@@ -1,0 +1,1574 @@
+﻿Sistema de gestión de servicios  
+del  
+      Laboratorio de Medios Audiovisuales
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grupo 4
+
+
+
+
+Fernandez Jeremías
+Gómez Abigail
+
+
+
+
+
+
+INGENIERÍA DE SOFTWARE I
+Profesor adjunto: Moyano, Ezequiel
+Asistente de 1ra: Prof. D’Uva, Iván
+Ushuaia, Tierra del Fuego 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Índice
+
+
+
+
+
+
+
+
+
+
+Estrategias de entrevistas         3
+
+
+Requerimientos funcionales        3
+
+
+Requerimientos no funcionales        6
+
+
+Specs        8
+
+
+Usuarios del sistema        11
+
+
+Casos de Uso        12
+
+
+Diagrama de Casos de Uso        42
+
+
+Diagrama de Clases        43
+
+
+Diagramas dinámicos…………………………………………………………………………44-47
+
+
+Diagrama de estados……………………………………………………………………………...48
+
+
+Diagrama de actividad…………………………………………………………………………….49
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ESTRATEGIA DE ENTREVISTAS
+
+
+Se utilizó la técnica de entrevista estructurada(estructura de embudo).
+En base a las funcionalidades mínimas que se solicita del sistema direccionamos a la clienta hacia cada requerimiento particular, realizando tanto preguntas abiertas como cerradas para obtener una visión global del funcionamiento de este pero también obtener sus aspectos elementales. 
+
+
+
+
+
+
+
+
+REQUERIMIENTOS FUNCIONALES
+
+
+
+
+ID
+	Descripción
+	RF-01
+	El alumno podrá registrarse en el sistema, indicando materia, año de cursada y mail.
+	RF-02
+	El usuario podrá iniciar sesión.
+	RF-03
+	El usuario academico podrá visualizar el catálogo de equipamiento.
+	RF-04
+	El usuario academico podrá filtrar el catálogo de equipamiento (por tipo: cámaras, sonido, iluminación y soportes; y por disponibilidad en una fecha).
+	RF-05
+	El usuario academico podrá solicitar un préstamo regular, indicando tipo de equipamiento, cantidad, fecha de préstamo, fecha de devolución, materia y cátedra asociada.
+	RF-06
+	El usuario academico podrá solicitar un préstamo especial de equipamiento de alta gama (cámaras de video profesional, kits de ópticas cinematográficas, sistemas de sonido multicanal), indicando cantidad, fechas y motivo.
+	RF-07
+	El usuario academico podrá visualizar aula-estudio e islas de edición disponibles.
+	RF-08
+	El usuario academico podrá reservar un aula/estudio, indicando espacio (aula-estudio, isla de edición), fecha, franja horaria y finalidad de uso.
+	RF-09
+	El usuario academico podrá consultar el listado de tutores disponibles, filtrando por tema/área y por modalidad (presencial o virtual).
+	RF-10
+	El alumno podrá inscribirse a una tutoría.
+	RF-11
+	El alumno podrá darse de baja de una tutoría.
+	RF-12
+	El usuario academico podrá visualizar el estado de sus solicitudes.(pendiente, aprobada , rechazada, entregada, devuelta, cancelada)
+	RF-13
+	El usuario academico  podrá consultar el historial de sus solicitudes.
+	RF-14
+	El usuario academico podrá cancelar un préstamo.
+	RF-15
+	El usuario academico podrá cancelar una reserva de aula/estudio.
+	RF-16
+	El usuario academico  podrá elegir el canal por el que quiere recibir las notificaciones.
+	RF-17
+	El usuario academico podrá visualizar la confirmación de una solicitud (préstamo regular, especial, tutoría o reserva de espacio).
+	RF-18
+	El usuario academico recibirá una notificación de aprobación o rechazo de su solicitud.( en caso de préstamo regular en materia-proyecto o préstamo especial,)
+	RF-19
+	El alumno recibirá una notificación cuando se le aplique una penalización.(por entrega tardía o por roturas,faltantes)
+	RF-20
+	El usuario academico recibirá un recordatorio de devolución antes del vencimiento del préstamo.
+	RF-21
+	El alumno podrá solicitar tener rol de tutor, especificando las materias que dictaría.
+	RF-22
+	El usuario academico podrá solicitar la extensión de un préstamo regular.
+	RF-23
+	El alumno que puede solicitar rol de tutor, recibirá una notificación de aprobación o rechazo de su solicitud.
+	RF-24
+	El docente podrá registrarse indicando mail y cátedra que dicta.
+	RF-25
+	El docente podrá visualizar las solicitudes de préstamo asociadas a su cátedra(materia proyecto).
+	RF-26
+	El docente podrá aprobar o rechazar solicitudes de préstamo asociadas a su cátedra(materia proyecto).
+	RF-27
+	El docente podrá solicitar préstamos especiales
+	RF-28
+	El tutor podrá cargar su disponibilidad horaria para dar tutorías, indicando tema, horario, modalidad, cupo y si es (virtual,presencial) .
+	RF-29
+	El tutor podrá registrar asistencia en su tutoría.
+	RF-30
+	El docente recibirá notificaciones de pedidos a aceptar.
+	RF-31
+	El colaborador podrá visualizar los préstamos a devolver en el día.
+	RF-32
+	El colaborador podrá visualizar las reservas confirmadas para entregar en el día.
+	RF-33
+	El colaborador podrá visualizar los préstamos vencidos.
+	RF-34
+	El colaborador podrá visualizar los préstamos pendientes de aprobación.
+	RF-35
+	El colaborador podrá visualizar los préstamos en curso.
+	RF-36
+	El colaborador podrá registrar la entrega del equipamiento y la cantidad entregada.
+	RF-37
+	El colaborador podrá registrar el estado del equipo en la devolución
+	RF-38
+	El colaborador podrá autorizar la renovación de un préstamo regular.
+	RF-39
+	El colaborador podrá consultar el estado de los equipos.
+	RF-40
+	El colaborador podrá visualizar el inventario.
+	RF-41
+	El colaborador podrá consultar el historial de préstamos y filtrarlo por tipo de equipo o rango de fecha.
+	RF-42
+	El colaborador recibirá una notificación con un resumen diario de los equipos retirados en el día.
+	RF-43
+	El colaborador recibirá una notificación de préstamos que no fueron devueltos en fecha.
+	RF-44
+	El colaborador recibirá una notificación de préstamos a retirar en el dia.
+	RF-45
+	El administrador podrá visualizar el listado de usuarios registrados (nombre y apellido, mail institucional, carrera/departamento y roles asignados).
+	RF-46
+	El administrador podrá filtrar la lista de usuarios por nombre, apellido ,rol/permiso o estado (Activos vs. Suspendidos / en "Lista Negra" rnf).
+	RF-47
+	El administrador podrá crear roles de los usuarios.
+	RF-48
+	El administrador podrá eliminar roles de usuarios.
+	RF-49
+	El administrador podrá visualizar las solicitudes de préstamo de equipo de alta gama.
+	RF-50
+	El administrador podrá filtrar las solicitudes de alta gama por estado, tipo de usuario y rango de fechas.
+	RF-51
+	El administrador podrá aprobar o rechazar las solicitudes de préstamo de equipamiento de alta gama.
+	RF-52
+	El administrador podrá consultar reportes y estadísticas de uso del laboratorio, filtrables por rango de fecha, categoría de equipamiento y materia/cátedra.
+	RF-53
+	El administrador podrá asignar roles a usuarios
+	RF-54
+	El administrador podrá configurar el calendario académico  (inicio/fin de cuatrimestre, receso, feriados)
+	RF-55
+	El administrador podrá asignar el rol de tutor a alumnos avanzados o docentes
+	RF-56
+	El usuario que tenga más de un rol  visualizará una pestaña adicional con acciones adicionales sin perder los permisos de su perfil base
+	RF-57
+	El administrador podrá crear usuarios.
+	RF-58
+	El administrador podrá bloquear o desbloquear cuentas de usuarios.
+	
+
+
+
+REQUERIMIENTOS NO FUNCIONALES
+
+
+
+
+ID
+	Descripción
+	RNF-01
+	El registro debe validarse con mail institucional (@untdf.edu.ar); las materias indicadas deben pertenecer a la carrera de Medios Audiovisuales y el año de cursada debe estar dentro del ciclo lectivo actual.
+	RNF-02
+	El horario de retiro y devolucion sera de lunes a viernes de '09:00 a 20:00hs'
+	RNF-03
+	Si el vencimiento de un préstamo cae sábado o domingo, el plazo de devolución se extiende automáticamente hasta el primer día hábil siguiente a las 9:00 hs.
+	RNF-04
+	El préstamo especial de equipamiento de alta gama debe tener un plazo mínimo de 48 horas.
+	RNF-05
+	Solo pueden solicitar préstamo especial de alta gama los alumnos de 3er año en adelante o los docentes.
+	RNF-06
+	Únicamente la administradora puede aprobar o rechazar solicitudes de préstamo especial de alta gama.
+	RNF-07
+	Las reservas de aula/estudio sólo pueden realizarse de lunes a sábado, dentro del horario de apertura de la sede pero los sábados no pueden incluir equipamiento
+	RNF-08
+	El equipo asociado a una reserva de aula/estudio debe devolverse el mismo día.
+	RNF-09
+	Una inscripción a tutoría se confirma instantáneamente si hay cupo disponible.
+	RNF-10
+	La baja de una tutoría requiere una anticipación mínima de 12 horas.
+	RNF-11
+	Si un alumno acumula 2 penalizaciones por falta, queda bloqueado para solicitar tutorías durante una semana. (darse de baja a tiempo no cuenta como falta)
+	RNF-12
+	El tutor debe brindar un link de Meet o Zoom en caso de dar una clase virtual 
+	RNF-13
+	Los canales disponibles para recibir notificaciones son: mail asociado a la cuenta o notificación dentro de la aplicación.
+	RNF-14
+	Las penalizaciones aplicables pueden ser: suspendido, lista negra.
+	RNF-15
+	Toda resolución de una solicitud (aprobación o rechazo) debe actualizar su estado y notificar automáticamente al solicitante.
+	RNF-16
+	El docente solo puede visualizar y aprobar/rechazar solicitudes asociadas a su propia cátedra.
+	RNF-17
+	Los estados de una solicitud podrán ser : pendiente, aprobada, entregada, devuelta, rechazada y cancelada.
+	RNF-18
+	Las solicitudes de equipamiento que no sean gama alta que puede aprobar el docente corresponden únicamente a Materias Proyecto.
+	RNF-19
+	Para solicitar el rol de tutor, el alumno debe cursar 4to año como mínimo y tener aprobadas con nota 8 o más las materias que especifique; la aceptación queda a cargo de la administradora.
+	RNF-20
+	El perfil de colaborador no puede editar ni eliminar usuarios.
+	RNF-21
+	El registro de entregas de equipamiento sólo puede realizarse de lunes a viernes de 9 a 20 hs.
+	RNF-22
+	Un equipo con una solicitud aprobada para un rango de fechas no puede figurar como disponible para ese mismo rango.
+	RNF-23
+	el panel de administración tendrá una barra de búsqueda de inventario predictiva a partir de la tercer letra con una respuesta menor a 3 segundos,filtrando principalmente por nombre del equipo o fechas
+	RNF-24
+	Los estados posibles de una cuenta de usuario son: activo, suspendido o en lista negra.
+	RNF-25
+	El sistema aprobará automáticamente los préstamos regulares que NO sean Materias Proyecto
+	RNF-26
+	El préstamo regular tendrá una duración máxima de 48 horas
+	RNF-27
+	El sistema enviará el recordatorio de devolución 24hs antes de la fecha de entrega.
+	RNF-28
+	El alumno va a ser suspendido temporalmente en caso de entregas tardías
+	RNF-29
+	los estados de los préstamos son (vencidos,pendientes,en curso)
+	RNF-30
+	El estado del equipo en la devolución podrá ser ("todo correcto"/"con  observaciones")
+	RNF-31
+	La cancelación de un aula solo puede ser 24 horas antes
+	RNF-32
+	el plazo para solicitar una extension de un prestamo es antes de la fecha de devolucion
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+USUARIOS DEL SISTEMA
+-Usuario
+-Usuario Académico
+        -Alumno
+        -Docente
+        -Administrador
+        -Colaborador
+
+
+
+
+
+
+CASOS DE USO
+
+
+
+
+—----------------------------------------------------
+
+
+
+
+CU-01: Iniciar sesión
+
+
+Actor primario: Usuario
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario: autenticarse para operar según sus permisos y roles asignados.
+Precondiciones:
+   * El usuario se encuentra previamente registrado.
+   * La cuenta se encuentra en estado Activo.
+Postcondiciones:
+   * Se registra una sesión activa asociada a la cuenta del usuario.
+Escenario principal:
+1. El usuario accede a la pantalla de inicio de la plataforma web.
+2. El sistema muestra el formulario de autenticación con los campos «Correo institucional» y «Contraseña», junto al botón «Iniciar sesión».
+3. El usuario ingresa sus credenciales y presiona «Iniciar sesión».
+4. El sistema verifica la validez de las credenciales y el rol asignado a la cuenta.
+5. El sistema redirige al panel principal correspondiente al rol o roles del usuario.
+Extensiones:
+4a. Las credenciales ingresadas son incorrectas.
+4a1. El sistema informa que el correo o la contraseña son incorrectos.
+4a2. El sistema permite al usuario volver a ingresar sus credenciales.
+4a3. Continúa en el paso 3 del escenario principal.
+4b. Uno o más campos obligatorios están vacíos.
+4b1. El sistema informa que se deben completar el correo institucional y la contraseña.
+4b2. El usuario completa los campos y presiona «Iniciar sesión».
+4b3. Continúa en el paso 4 del escenario principal.
+4c. La cuenta se encuentra suspendida o inhabilitada temporalmente:
+4c1. El sistema informa que la cuenta posee una suspensión activa (indicando motivo o   fecha de finalización) y no permite iniciar sesión.
+
+
+
+
+CU-02: Registrarse
+
+
+Actor primario: Usuario Académico. 
+Alcance:  Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario: Crear una cuenta vinculada a su identidad universitaria para acceder a las reservas y servicios del laboratorio.
+   * Administración: Garantizar que solo miembros legítimos de la comunidad académica (alumnos/docentes) se registren en la plataforma.
+Precondiciones:
+   * No se requieren precondiciones.
+Postcondiciones:
+   * La cuenta de usuario queda registrada en el sistema con estado Activo.
+   * Se habilitan las credenciales para el inicio de sesión.
+Escenario principal:
+1. El usuario accede a la pantalla de inicio de la plataforma web.
+2. El sistema muestra la opción «Registrarse».
+3. El usuario selecciona «Registrarse».
+4. El sistema muestra el formulario con los campos «Nombre», «Apellido», «Correo institucional», «Contraseña» y «Confirmar contraseña», junto al botón «Crear cuenta».
+5. El usuario completa los campos y presiona «Crear cuenta».
+6. El sistema valida los datos ingresados y registra la cuenta.
+7. El sistema le informa al usuario que el registro fue exitoso y redirige al usuario a la pantalla de inicio de sesión.
+Extensiones:
+6a. Hay datos inválidos o campos obligatorios incompletos.
+6a1. El sistema informa qué campos deben completarse o corregirse.
+6a2. El usuario corrige los datos y presiona «Crear cuenta».
+6a3. Continúa en el paso 6 del escenario principal.
+6b. Ya existe una cuenta asociada al correo ingresado.
+6b1. El sistema informa que el correo ingresado ya está registrado.
+6b2. El usuario ingresa otro correo institucional y presiona «Crear cuenta».
+6b3. Continúa en el paso 6 del escenario principal.
+6c. El correo ingresado no pertenece al dominio institucional.
+6c1. El sistema informa que debe ingresar un correo institucional.
+6c2. El usuario corrige el correo y presiona «Crear cuenta».
+6c3. Continúa en el paso 6 del escenario principal.
+CU-03: Configurar canal de notificaciones
+
+
+Actor primario: Usuario Académico 
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario Académico: elegir el medio preferido para recibir avisos del sistema.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema.
+Postcondiciones:
+   * Se guarda la preferencia del canal de notificación del usuario.
+   * Si el usuario cancela o no confirma cambios, se conservan las preferencias previamente configuradas.
+Escenario principal:
+1. El usuario selecciona «Configuración de notificaciones» desde el panel principal.
+2. El sistema muestra la configuración de canales con las opciones «Correo electrónico» y «Notificación de la aplicación», junto al botón «Guardar» y «Cancelar»..
+3. El usuario marca o desmarca los canales que desea utilizar y presiona «Guardar».
+4. El sistema valida la selección y guarda las preferencias de notificación.
+5. El sistema le informa al usuario académico que la configuración se guardó correctamente.
+Extensiones:
+       3a. El usuario cancela la configuración:
+3a1. El usuario selecciona la opción «Cancelar».
+3a2. El sistema descarta las modificaciones y retorna al panel principal.
+4a. El usuario no selecciona ningún canal de notificación.
+4a1. El sistema mantiene habilitada la notificación de la aplicación como canal predeterminado.
+4a2. El sistema guarda la preferencia predeterminada e informa al usuario el resultado.
+
+
+
+
+CU-04: Consultar catálogo de equipamiento
+Actor primario: Usuario Académico
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+* Usuario Académico: Conocer la disponibilidad y el stock de los equipos antes de realizar un pedido.
+Precondiciones:
+* El usuario se encuentra autenticado en el sistema.
+Postcondiciones:
+Escenario principal:
+        
+1. El usuario selecciona la opción «Catálogo de equipamiento» desde la página principal.
+2. El sistema muestra el listado de equipos con nombre, categoría, disponibilidad y stock. Junto al listado muestra el campo de búsqueda, el selector de categoría, el selector de disponibilidad, el botón «Aplicar filtros» y el botón «Solicitar préstamo» en cada equipo. de cada equipo un casillero para tildarlo
+3. El usuario ingresa un término en el campo de búsqueda y presiona «Aplicar filtros».
+4. El sistema actualiza el listado mostrando únicamente los equipos coincidentes
+        
+Extensiones:
+2a. El usuario decide solicitar un equipo:
+        2a1. El usuario presiona «Solicitar préstamo» sobre un equipo.
+        2a2. El flujo continúa en CU-07: Solicitar préstamo de equipamiento, con el         equipo seleccionado ya agregado a la solicitud.
+
+
+3a. No hay equipos que coincidan con la búsqueda o los filtros aplicados:
+3a1. El sistema informa que no se encontraron equipos para los criterios ingresados.
+3a2. El usuario puede ajustar o limpiar los filtros y la búsqueda.
+3a3. Continúa en el paso 4 del escenario principal.
+
+
+ 3b: el usuario filtra por categoría o disponibilidad.
+   * 3b1: el usuario selecciona el filtro por categoria.
+   * 3b2: presiona «Aplicar filtros».
+   * 3b3: continúa en el paso 4.
+
+
+
+
+
+
+                 
+                 
+
+
+
+
+
+
+
+
+
+
+CU-05: Gestionar Mis Solicitudes 
+
+
+Actor primario: Usuario Académico 
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario Académico: Centralizar y visualizar en un único panel el estado de todas sus solicitudes de préstamos y reservas de aulas.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema.
+Postcondiciones:
+   * La consulta no modifica el estado del sistema.
+Escenario principal:
+   1. El usuario selecciona la opción «Mis solicitudes» desde el panel principal.
+   2. El sistema muestra la pantalla general de solicitudes organizadas en dos secciones: «Préstamos de equipamiento» y «Reserva de aulas/estudios».
+   3. El sistema muestra el resumen de las solicitudes activas e históricas con sus respectivos estados («Pendiente», «Aprobada», «Entregada», «Rechazada», «Cancelada»). 
+   4. El usuario selecciona la sección de su interés.
+Extensiones:
+4a. El usuario selecciona la sección «Préstamos de equipamiento»:
+4a1. El flujo continúa en CU-06: Gestión de préstamos.
+4b. El usuario selecciona la sección «Reserva de aulas/estudios»:
+4b1. El flujo continúa en CU-10: Gestión de reserva de aulas.
+
+
+
+
+CU-06: Gestiónar préstamos 
+
+
+Actor primario: Usuario Académico 
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario Académico: Ver el detalle de sus préstamos de equipos y acceder a las opciones para extender plazos o cancelar solicitudes.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema.
+Postcondiciones:
+Escenario principal:
+   1. El usuario accede a la sección «Préstamos de equipamiento» desde el panel de solicitudes.
+   2. El sistema muestra el listado detallado de préstamos del usuario indicando fecha de solicitud, equipo, fecha límite de devolución y estado actual junto a un botón ”crear préstamo”.
+   3. El usuario selecciona un préstamo específico para ver su detalle.
+   4. El sistema muestra el detalle del préstamo con su estado actual y los botones «Solicitar extensión» y «Cancelar préstamo». 
+   5. El usuario clickea en «Cancelar préstamo» continua en CU 09
+
+
+CU-07: Solicitar préstamo de equipamiento
+Actor primario: Usuario Académico
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario Académico: Registrar su solicitud de equipamiento audiovisual según la gama del equipo solicitado.
+   * Docente: Aprobar las solicitudes de gama media que lo indican como docente a cargo.
+   * Administrador: Evaluar las solicitudes de equipamiento de gama alta.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema.
+Postcondiciones:
+   * La solicitud queda registrada con su número identificador, fecha de creación, usuario solicitante, equipos y datos ingresados.
+   * El estado de la solicitud es «Aprobada» (si es gama media), «Pendiente» (gama media para Materia Proyecto o gama alta).
+   * Los equipos quedan reservados para la franja horaria solicitada.
+   * Se notifica al usuario y, si la solicitud requiere aprobación, a quien debe resolverla.
+
+
+Escenario principal:
+   1. El sistema muestra el formulario de solicitud con los campos «Materia/Cátedra/Proyecto», «Docente a cargo», «Fecha de retiro y  fecha de devolución» y «Justificación». Muestra también el buscador de equipos con los filtros de categoría y disponibilidad, la lista de equipos de la solicitud y los botones «Confirmar solicitud» y «Cancelar». 
+   2. El usuario ingresa un término en el buscador de equipos. 
+   3. El sistema muestra los equipos que coinciden con la búsqueda, con el botón «Agregar» en cada uno. 
+   4. El usuario presiona «Agregar» sobre un equipo e indica la cantidad.
+   5. El sistema agrega el equipo a la lista de equipos de la solicitud, con el botón «Quitar» en cada uno 
+   6. El usuario completa los datos del formulario. 
+   7. El usuario presiona «Confirmar solicitud»
+   8. El sistema valida que todos los equipos sean de la misma gama, que el plazo cumpla las condiciones de esa gama, que los equipos estén disponibles en la franja horaria indicada y que el usuario no posea bloqueos. 
+   9. El sistema registra la solicitud, reserva los equipos, notifica al usuario y muestra un mensaje de confirmación indicando que la solicitud fue creada, junto con su número identificador. 
+
+
+Extensiones:
+
+
+1a El usuario ya tiene equipos seleccionados para la solicitud
+1a1.. El sistema muestra el formulario con todo lo del escenario principal, con el filtro de fechas ya cargado y la lista con los equipos ya agregados. 
+1a2. continúa en paso 2.
+5a. El usuario intenta agregar un equipo de gama alta sin ser alumno de tercer año o superior, ni docente:
+5a1. El sistema informa que el equipamiento de gama alta está reservado exclusivamente para alumnos de tercer año o superior y docentes.
+5a2. Continúa en el paso 2 del escenario principal.
+6a. El usuario quita un equipo de la solicitud:
+   * 6a1. El usuario presiona «Quitar» en uno de los equipos de la lista.
+   * 6a2. El sistema actualiza la lista de equipos de la solicitud.
+   * 6a3. Continúa en el paso 6 del escenario principal.
+7a. El usuario cancela la solicitud:
+   * 7a1. El usuario presiona el botón «Cancelar».
+   * 7a2. El sistema descarta la solicitud y vuelve al panel principal.
+8a. La solicitud contiene equipos de distintas gamas:
+   * 8a1. El usuario agrega elementos de gama alta y gama media.
+   * 8a2. El sistema informa que no es posible combinar equipos de distintas gamas en una misma solicitud.
+   * 8a3. El usuario vuelve al paso 2.
+8b. El plazo solicitado no cumple las condiciones de la reserva de gama alta de los equipos:
+   * 8b1. El usuario ingresa un plazo menor a 48 horas.
+   * 8b2. El sistema informa las condiciones de plazo que debe cumplir la solicitud (gama alta: mínimo 48 horas).
+   * 8b3. El usuario continúa en el paso 6 del escenario principal.
+8c. Uno o más equipos no están disponibles para la franja horaria solicitada:
+   * 8c1. El sistema informa cuáles son los equipos no disponibles.
+   * 8c2. Continúa en el paso 2 del escenario principal.
+8d. El usuario posee sanciones vigentes o equipos con devolución vencida:
+   * 8d1. El sistema informa que no puede realizar la solicitud y detalla el motivo (tanto por si no devolvio otro prestamo o porque esta con sancion hasta tal fecha)
+
+
+
+
+
+
+
+
+CU-08: Solicitar extensión de préstamo
+
+
+Actor primario: Usuario Académico.
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Usuario Académico: Pedir un margen adicional de tiempo para la devolución de un equipo en uso.
+   * Colaborador: Recibir la solicitud para su posterior evaluación en el panel operativo.
+Precondiciones:
+   * El usuario posee el préstamo en estado «Entregado».
+   * Faltan menos de 24 horas para el vencimiento y no existe una reserva posterior del mismo equipo por otro usuario.
+Postcondiciones:
+   * La solicitud de extensión queda registrada en el sistema en estado «Pendiente de renovación»].
+   * Se genera una alerta en la bandeja del personal del pañol para su evaluación 
+Escenario principal:
+   1. El usuario selecciona «Solicitar extensión» en un préstamo activo desde la gestión de préstamos (CU-06).
+   2. El sistema muestra la pantalla de solicitud de prórroga indicando la nueva fecha/hora límite propuesta.
+   3. El usuario confirma la solicitud de extensión.
+   4. El sistema verifica que el equipo no se encuentre reservado por otro usuario en la nueva franja horaria. y que la cuenta del usuario no posea sanciones o bloqueos activos
+   5. El sistema muestra la solicitud en estado «Pendiente de renovación».
+   6. El sistema muestra un mensaje notificando: “Su solicitud de extensión fue enviada y se encuentra pendiente de autorización por el pañol” y retorna a «Gestión de préstamos» (CU-06).
+Extensiones:
+4a. El equipo ya se encuentra reservado por otro usuario para el período solicitado:
+   4a1. El sistema informa que no es posible otorgar la prórroga debido a reservas preexistentes y mantiene la fecha límite original.
+4a1. El sistema redirige a CU-06 “Gestión de préstamos”
+4b. El usuario posee una sanción activa o entrega pendiente fuera de término:
+4b1. El sistema informa que no es posible solicitar prórrogas debido a irregularidades o bloqueos activos en la cuenta.
+4b2. El sistema cancela la operación y no guarda la solicitud.
+4b3. El sistema redirige a CU-06 “Gestión de préstamos”
+
+
+CU-09: Cancelar préstamo
+
+
+Actor primario: Usuario Académico.
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Usuario Académico: Dar de baja un pedido de equipo que ya no requerirá.
+   * Colaborador: Liberar el stock de equipamiento para otros usuarios.
+Precondiciones:
+   * La solicitud de préstamo se encuentra en estado «Pendiente» o «Aprobada» (antes del retiro del equipo).
+Postcondiciones:
+   * La solicitud cambia a estado «Cancelada» y se libera el stock del equipo.
+
+
+Escenario principal:
+   1. El usuario selecciona «Cancelar préstamo» sobre una solicitud en la lista de gestión de préstamos 
+   2. El sistema muestra el detalle del prestamo con la lista de los elementos, fecha, hora,  junto al boton confirmar cancelacion..
+   3. El usuario confirma la cancelación.
+   4. El sistema actualiza el estado de la solicitud a «Cancelada», libera la reserva del equipo e informa al usuario que la operación fue exitosa.
+Extensiones:
+3a: El usuario clickea cancelar cancelacion de prestamo
+        3a1: el usuario clickea en cancelar “cancelacion prestamo”
+        3a2: vuelve al CU 06.
+
+
+
+
+
+
+CU-10: Gestión de reserva de aulas e islas de edición
+
+
+Actor primario: Usuario Académico.
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Usuario Académico: Consultar el estado de sus reservas de espacios físicos y acceder a las opciones de creación o cancelación.
+   * Administración / Pañol: Disponer de la grilla horaria de ocupación de las salas físicas para evitar solapamientos
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema.
+   * El usuario se encuentra posicionado en la pestaña «Reserva de aulas/estudios» dentro de «Mis solicitudes» (CU-05).
+Postcondiciones:
+   * Si el usuario solo consulta, el estado del sistema no se altera.
+   * Si se realiza una cancelación o nueva reserva, se actualiza el calendario de ocupación del espacio físico.
+Escenario principal:
+   1. El sistema muestra la grilla horaria y el listado de reservas del usuario sobre espacios físicos (estudio de grabación, islas de edición, salas de sonido) indicando fecha, franja horaria, espacio y estado («Pendiente», «Aprobada», «Cancelada», «Finalizada») y el botón «Nueva reserva de aula/isla».
+   2. El usuario selecciona una reserva específica para consultar sus detalles.
+   3. El sistema despliega la ficha del turno con la información de la actividad y los equipos complementarios adjuntos (si los hubiere).
+
+
+Extensiones:
+1a. El usuario no posee reservas de espacios registradas:
+1a1. El sistema muestra el mensaje: “No posee reservas de aulas o islas registradas”.
+1b. El usuario decide realizar una nueva reserva de espacio físico:
+1b1. El usuario selecciona la opción «Nueva reserva de aula/isla».
+1b2. El flujo continúa en CU-11: Reservar aula/estudio.
+3a. La reserva se encuentra en estado «Pendiente» o «Confirmada» (antes del inicio del bloque horario):
+3a1. El sistema habilita el botón «Cancelar reserva».
+3a2. Si el usuario selecciona «Cancelar reserva», el flujo continúa en CU-12: Cancelar reserva de aula/estudio.
+3b. La reserva se encuentra en estado «Finalizada» o «Cancelada»:
+3b1. El sistema muestra la ficha en modo solo lectura y deshabilita los controles de modificación.
+
+
+CU-11 Reservar aula/estudio o isla de edición
+Actor primario: Usuario Académico.
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario Académico: Asegurar un bloque horario en el estudio de grabación o islas de edición para sus prácticas.
+   * Colaborador: Preparar el espacio y los equipos complementarios adjuntos antes del inicio de la sesió
+   * Docente de la cátedra: Recibir los pedidos de equipamiento de Materia Proyecto para aprobarlos o rechazarlos.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema.
+Postcondiciones:
+   * La reserva queda registrada en estado “Aprobada” y figura en el historial del usuario 
+   * El espacio deja de figurar como disponible para esa fecha y franja
+Escenario principal:
+   1. El usuario selecciona «Reservar aula/estudio» desde el panel de gestión.
+   2. El sistema despliega el calendario de espacios físicos mostrando la disponibilidad de salas (estudio principal, islas de edición) junto con los botones para aplicar filtro de fechas y horarios
+   3. El usuario selecciona el espacio deseado.
+   4. El sistema muestra un recuadro con las opciones obligatorios: Materia/Proyecto y Finalidad de uso  los botones <<agregar equipo>> , <<sin equipo adicional>> y <<confirmar reserva>>
+   5. El usuario selecciona «Sin equipos adicionales.
+   6. El usuario presiona «Confirmar reserva».
+   7. El sistema valida la disponibilidad del espacio físico para el bloque horario seleccionado.
+   8. El sistema registra la reserva en estado «Aprobada», asigna el bloque en el calendario, emite la confirmación en pantalla y retorna a «Mis solicitudes».
+Extensiones:
+
+
+5a. El usuario solicita equipamiento complementario para el uso en la sala:
+        5a1. El usuario clickea en la opción «Agregar equipamiento».
+5a2. Continúa en CU-07: Solicitar préstamo de equipamiento.
+
+
+7a. El espacio físico no posee disponibilidad en la franja seleccionada:
+        7a1: El usuario ingreso un aula no disponible 
+7a2. El sistema informa el conflicto de horario y muestra bloques alternativos disponibles en el calendario.
+7a3. El usuario ajusta el horario o cambia de espacio físico y presiona «Confirmar reserva».
+7a4. Continúa en el paso 4 del escenario principal.
+6a. El usuario registra una sanción o bloqueo activo en su cuenta:
+        6a1: El usuario confirma la solicitud del espacio
+7b1. El sistema informa que no es posible realizar reservas de aulas debido a una suspensión vigente en la cuenta y cancela la operación.
+
+
+
+
+
+
+
+
+CU-12 Cancelar reserva de aula/estudio
+Actor primario: Usuario Académico.
+Alcance:Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Usuario Académico: Liberar formalmente un turno de aula o isla que no utilizará.
+   * Colaborador: ver que el aula quedó disponible en ese horario.
+   * Otros alumnos y docentes: encontrar el aula liberada para reservarla.
+Precondiciones:
+   1. El usuario inició sesión y su cuenta está activa (RNF-24).
+   2. La reserva seleccionada se encuentra en estado «Pendiente» o «Confirmada» en CU-10 (previo al inicio del bloque horario).
+Postcondiciones:
+   1. La reserva cambia a estado «Cancelada» y el bloque horario se libera inmediatamente en el calendario general.
+   2. Se liberan los equipos complementarios que hubieran sido adjuntados a la sesión.
+Escenario principal:
+   1. El usuario selecciona «Cancelar reserva» sobre un turno activo en la lista de reservas (CU-10).
+   2. El sistema muestra la ventana de confirmación detallando la sala, fecha y franja horaria a liberar y los botones de “Confirmar” y “Volver”.
+   3. El usuario confirma la cancelación apretando el botón “Confirmar”.
+   4. El sistema actualiza el estado de la reserva a «Cancelada»,y muestra un mensaje de confirmación notificando que la operación fue exitosa.
+Extensiones:
+2.a. El usuario aprieta el botón “Volver”
+2.a.1 El sistema mantiene la reserva sigue vigente y redirige a la pantalla principal
+
+
+        
+
+
+CU-13: Gestionar mis tutorías
+
+
+Actor primario: Usuario Académico.
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Docente, Alumno: necesita consultar las tutorías que tiene asignadas y acceder a las opciones para crear tutorías y registrar asistencias.
+Precondiciones:
+   * El Usuario académico se encuentra autenticado en el sistema.
+   * El usuario autenticado en la sesión cuenta con el rol activo de Tutor asignado en su cuenta
+Postcondiciones:
+
+
+   * Si el docente/alumno solo consulta sus tutorías, no se modifica el estado del sistema.
+
+
+Escenario principal:
+1. El docente selecciona la opción «Mis tutorías» desde el panel principal.
+2. El sistema muestra el listado de tutorías asignadas al usuario.
+3. El sistema muestra la opción «Crear tutoría» y, para cada tutoría del listado, la opción «Registrar asistencia».
+Extensiones:
+2a. El usuario no tiene tutorías asignadas.
+2a1. El sistema informa que no hay tutorías asignadas.
+2a2. El sistema mantiene disponible la opción «Crear tutoría».
+3a. El usuario decide crear una tutoría.
+3a1. El usuario selecciona «Crear tutoría».
+3a2. Continúa en CU 14.
+3b. El usuario decide registrar asistencia.
+3b1. El usuario selecciona «Registrar asistencia» para una tutoría del listado.
+3b2. Continúa en CU 15.
+
+
+
+
+
+
+
+
+CU-14: Crear tutoría
+
+
+Actor primario: Usuario Académico
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Docente/Alumno: Publicar sus espacios y bloques de consulta para organizar sus tutorías .
+   * Alumno: Conocer los horarios abiertos para inscribirse.
+
+
+Precondiciones:
+   * El Usuario académico se encuentra autenticado en el sistema.
+   * El usuario autenticado en la sesión cuenta con el rol activo de Tutor asignado en su cuenta
+Postcondiciones:
+   * Los bloques horarios quedan publicados y disponibles para la reserva de los alumnos.
+   * La nueva tutoría queda registrada y asociada al usuario.
+
+
+Escenario principal:
+
+
+1. El usuario selecciona «Crear tutoría» desde la sección «Mis tutorías».
+2. El sistema muestra el formulario de registro solicitando: área/materia, modalidad (presencial/virtual), fecha/hora, cupo y ubicación o enlace, junto con los botones “Confirmar” y “Cancelar”.
+3. El usuario completa los datos solicitados.
+4. El usuario presiona el botón “Confirmar”.
+5. El sistema valida los datos ingresados y registra la tutoría.
+6. El sistema muestra un mensaje de confirmación notificando que la tutoría se creó con éxito.
+
+
+Extensiones:
+
+
+2a. El usuario cancela la carga de la tutoría.
+2a1. El usuario selecciona la opción 'Cancelar'..
+2a2. El sistema cancela la operación, no guarda los datos y retorna a «Mis tutorías».
+        5a. Los datos ingresados son incompletos o inválidos.
+5a1. El sistema informa qué datos deben completarse o corregirse.
+5a2. El usuario corrige los datos.
+5a3. Continúa en el paso 4 del escenario principal.
+
+
+
+
+CU-15: Registrar asistencia a tutoría
+
+
+Actor primario: Usuario Académico .
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Docente/Alumno: Dejar constancia de qué alumnos asistieron a la tutoría programada.
+   * Administración : Controlar el ausentismo para aplicar las penalizaciones correspondientes en caso de inasistencias injustificadas.
+Precondiciones:
+   * El Usuario académico se encuentra autenticado en el sistema.
+   * El usuario autenticado en la sesión cuenta con el rol activo de Tutor asignado en su cuenta
+   * La tutoría se encuentra en el horario o fecha correspondiente a su realización.
+Postcondiciones:
+   * Se registra el estado de asistencia de cada alumno inscripto (Presente / Ausente).
+   * Si se registra ausente sin aviso previo, el sistema computa la falta para las penalizaciones y penaliza temporalmente al alumno deshabilitandole la opción de solicitar tutorías.
+
+
+Escenario principal:
+
+
+   1.  El usuario selecciona «Registrar asistencia» para una tutoría desde la sección «Mis tutorías».
+   2. El sistema muestra el listado de estudiantes inscriptos en la tutoría seleccionada y los controles para indicar su asistencia, además de un botón para <<confirmar>> y otro para <<cancelar>>.
+   3. El usuario marca el estado de asistencia ("Presente" o "Ausente") de los participantes.
+   4. El usuario presiona el botón de “Confirmar”.
+   5. El sistema guarda el registro de asistencia en el sistema .
+   6. El sistema evalúa si el alumno acumula dos ausencias injustificadas; de ser así, aplica automáticamente el bloqueo temporal para solicitar nuevas tutorías durante una semana.
+   7. El sistema muestra un mensaje de confirmación notificando: “El registro de asistencia se completó correctamente” y retorna a «Mis tutorías»
+
+
+Extensiones:
+2a. No hay estudiantes inscriptos en la tutoría.
+2a1. El sistema informa que no hay estudiantes inscriptos en la tutoría.
+   2a2. El sistema deshabilita la carga de asistencias y permite retornar a «Mis      tutorías» CU-13. 
+        4a. El usuario cancela el registro de asistencia.
+4a1. El usuario selecciona la opción para cancelar la operación.
+4a2. El sistema cancela la operación, no guarda los datos ingresados y retorna a «Mis tutorías» CU-13.
+
+
+CU-16: Gestionar solicitudes de prèstamo regular
+
+
+Actor primario: Docente.
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Docente: necesita consultar las solicitudes de préstamo asociadas a su cátedra y resolver las que estén pendientes.
+   * Alumno: necesita que su solicitud sea resuelta y conocer su estado.
+Precondiciones:
+   * El docente se encuentra autenticado en el sistema.
+   * El docente tiene asignada al menos una cátedra o materia en el ciclo lectivo activo.
+Postcondiciones:
+   * Si el docente resuelve una solicitud pendiente, el sistema actualiza su estado a «Aceptada» o «Rechazada».
+   * Si el docente solo consulta las solicitudes, el estado del sistema no se modifica.
+
+
+Escenario principal:
+   1. El docente selecciona la opción «Solicitudes de préstamo» desde el panel principal.
+   2. El sistema muestra el listado de solicitudes asociadas a las cátedras del docente, junto con el estado de cada solicitud: «Pendiente», «Aceptada» o «Rechazada».
+   3. El docente selecciona una solicitud para consultar sus detalles.
+   4. El sistema muestra la ficha técnica de la solicitud (materia, equipamiento, fecha/duración y justificación) y, si el estado es «Pendiente», habilita los botones «Aceptar» y «Rechazar».
+   5. El docente revisa la información de la solicitud.
+
+
+Extensiones:
+2a. No existen solicitudes asociadas a las cátedras del docente.
+ 2a1. El sistema informa que no hay solicitudes de préstamo para mostrar.
+2a2. El sistema permite retornar al panel principal.
+5a. El docente decide resolver una solicitud pendiente.
+ 5a1. El docente selecciona la opción «Aceptar» o «Rechazar».
+ 5a2. El sistema registra la decisión, actualiza el estado de la solicitud a «Aceptada» o «Rechazada» y envía una notificación automática al alumno solicitante.
+ 5a3. El sistema muestra un mensaje de confirmación notificando que la solicitud fue resuelta correctamente y actualiza la vista.
+5b. El docente intenta resolver una solicitud que ya fue aceptada o rechazada.
+ 5b1. El sistema muestra la solicitud en modo de solo lectura, deshabilitando las opciones para modificar su estado.
+CU-17: Gestionar mis inscripciones a tutoría
+
+
+Actor primario: Usuario Académico
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Alumno: Consultar el estado, horarios y modalidad de las tutorías a las que se inscribió, y acceder a la opción de baja.
+   * Tutor: Mantener informados a los estudiantes sobre las sesiones confirmadas y coordinar la atención
+Precondiciones:
+   * El Usuario académico se encuentra autenticado en el sistema.
+Postcondiciones:
+   * Si el usuario solo consulta o filtra, el estado del sistema no se modifica.
+   * Si se procesa una baja de inscripción (vía CU-18), se libera el cupo de la franja horaria correspondiente
+Escenario principal:
+   1. El alumno accede a la opción «Mis inscripciones a tutorías» desde el panel principal o desde la pestaña de tutorías (CU-05).
+   2. El sistema despliega el listado de inscripciones del alumno mostrando las columnas Tutoría/Tema, Tutor, Fecha/Horario, Modalidad (Presencial/Virtual) y Estado, junto al selector de filtro por Estado.
+   3. El alumno selecciona una inscripción específica del listado.
+   4. El sistema despliega la ficha de detalle de la inscripción con los datos completos: tema/área, tutor asignado, fecha, horario, modalidad (con lugar presencial o enlace virtual), estado actual y fecha de inscripción, junto al botón «Darse de baja».
+
+
+
+
+Extensiones:
+2a. El alumno no posee inscripciones registradas:
+2a1. El sistema muestra el mensaje: “No posees inscripciones a tutorías registradas”.
+2a2. El caso de uso finaliza.
+2b. El alumno aplica el filtro por estado:
+2b1. El alumno selecciona un estado específico en el filtro (ej. Confirmada, Finalizada, Cancelada).
+2b2. El sistema actualiza el listado mostrando únicamente las inscripciones coincidentes.
+2b3. Continúa en el paso 3 del escenario principal.
+4a. El alumno solicita darse de baja de la inscripción en estado “Confirmada”:
+4a1. El alumno presiona el botón «Darse de baja».
+4a2. El flujo continúa en CU-18: Darse de baja de tutoría.
+
+
+CU-18: Darse de baja de una tutoría
+
+
+Actor primario: Usuario Académico
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Alumno: Cancelar su turno de tutoría de forma oportuna cuando no pueda asistir.
+   * Tutor: Recibir la liberación del cupo en su agenda para atender a otros estudiantes.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema.
+   * El alumno se encuentra visualizando la ficha de detalle de una inscripción en estado «Confirmada» dentro de «Gestionar mis inscripciones a tutoría» (CU-17).
+Postcondiciones:
+   * El estado de la inscripción cambia a «Cancelada» en la base de datos.
+   * Se libera automáticamente el cupo en la franja horaria de la tutoría para que pueda ser reservado por otro estudiante.
+   * El sistema incrementa en 1 el cupo disponible en la agenda del tutor 
+Escenario principal:
+   1. El alumno presiona el botón «Darse de baja» en el detalle de la inscripción (CU-17).
+   2. El sistema valida que el turno cumpla con el margen mínimo de anticipación configurado (ej. 24 horas antes del inicio).
+   3. El sistema despliega un diálogo emergente de confirmación notificando: “¿Está seguro que desea darse de baja de la tutoría?” junto a los botones «Confirmar baja» y «Cancelar».
+   4. El alumno presiona «Confirmar baja».
+   5. El sistema actualiza el estado de la inscripción a «Cancelada», y emite el mensaje: “Te has dado de baja de la tutoría correctamente”.
+   6. El sistema retorna al listado actualizado de «Mis inscripciones» (CU-17).
+
+
+Extensiones:
+2a. La solicitud de baja se realiza fuera del plazo de anticipación permitido (menos de 24 hs antes del inicio):
+2a1. El sistema informa mediante un mensaje: “No es posible cancelar la tutoría con menos de 24 horas de anticipación. De no asistir, el turno se registrará como inasistencia”.
+2a2. El sistema mantiene la inscripción en estado «Confirmada» y retorna a la ficha de detalle (CU-17).
+4a. El alumno cancela la acción en el diálogo de confirmación:
+4a1. El alumno presiona el botón «Cancelar».
+4a2. El sistema mantiene la inscripción en estado «Confirmada» y retorna a la ficha de detalle (CU-17).
+
+
+CU-19: Inscribirse a tutoría
+
+
+Actor primario: Usuario Académico
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Alumno: Reservar una vacante en una tutoría académica y recibir la confirmación del turno.
+   * Tutor: Contar con la nómina actualizada de estudiantes inscriptos para organizar la sesión.
+   * Administración: Garantizar el cumplimiento del cupo máximo por tutoría y la aplicación de las normas de asistencia
+Precondiciones:
+   * El Usuario académico se encuentra autenticado en el sistema.
+Postcondiciones:
+   * La inscripción del alumno queda registrada y vinculada a la tutoría seleccionada.
+   * Se descuenta una vacante disponible del cupo total de la tutoría.
+Escenario principal:
+   1. El alumno selecciona la opción «Tutorías disponibles» desde el panel principal.
+   2. El sistema despliega el listado de tutorías disponibles mostrando materia, tema, tutor, fecha, horario, modalidad (presencial/virtual), cupos restantes y el botón «Inscribirse» en cada ítem.
+   3. El alumno selecciona la tutoría deseada y presiona el botón «Inscribirse».
+   4. El sistema valida que la tutoría posea cupos disponibles, que el alumno no registre sanciones por inasistencias previas y que no posea inscripciones solapadas en ese mismo horario.
+   5. El sistema registra la inscripción del alumno, actualiza el contador de cupos y emite el comprobante de confirmación con los datos de acceso o lugar.
+   6. El sistema informa al alumno que la inscripción se realizó correctamente y le permite redirigirse a «Mis inscripciones a tutoría» (CU-17).
+
+
+Extensiones:
+3a. El alumno decide aplicar filtros en el listado:
+   * 3a1. El alumno selecciona los criterios deseados (materia, docente/tutor, modalidad o día) y presiona «Aplicar filtros».
+   * 3a2. El sistema actualiza el listado mostrando únicamente las tutorías coincidentes.
+   * 3a3. Continúa en el paso 3 del escenario principal.
+4a. La tutoría seleccionada no posee cupos disponibles:
+   * 4a1. El sistema informa mediante un mensaje que la tutoría ha alcanzado el límite máximo de inscriptos.
+   * 4a2. El sistema no registra la inscripción y permite al alumno seleccionar otro turno disponible.
+4b. El alumno posee una penalización activa por inasistencias injustificadas:
+   * 4b1. El sistema detecta la sanción en la cuenta del alumno e informa: “No es posible inscribirse a tutorías debido a una suspensión activa por inasistencias previas sin aviso”.
+   * 4b2. El sistema bloquea el registro de la inscripción.
+4c. El alumno ya se encuentra inscripto en la misma tutoría o en una actividad con superposición horaria:
+   * 4c1. El sistema informa que el usuario ya registra un turno confirmado en esa franja horaria.
+   * 4c2. El sistema cancela la operación y no registra la nueva inscripción.
+
+
+CU-20: Solicitar rol de tutor
+
+
+Actor primario: Usuario Académico
+
+
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+
+
+Stakeholders:
+   * Alumno: Postularse formalmente para obtener los permisos de tutor y poder dictar sesiones de apoyo a sus pares.
+   * Administración: Evaluar el rendimiento académico del postulante y autorizar la asignación del rol.
+Precondiciones:
+   * El Usuario académico se encuentra autenticado en el sistema.
+   * El usuario se encuentra autenticado en el sistema con el perfil de Estudiante.
+Postcondiciones:
+   * La solicitud queda registrada en la base de datos en estado «Pendiente de aprobación».
+   * Se genera una alerta en el panel de administración para su evaluación.
+Escenario principal:
+   1. El alumno accede a su panel principal.
+   2. El sistema muestra la opción «Solicitar rol de tutor» dentro de la sección de perfil o tutorías.
+   3. El alumno selecciona «Solicitar rol de tutor».
+   4. El sistema despliega el formulario de postulación con los campos: Año de cursada, Materias aprobadas, Materia(s) a tutorear, Historia académica / Comprobante (adjunto) y la fundamentación del pedido, junto al botón «Enviar solicitud».
+   5. El alumno completa los campos obligatorios, adjunta la documentación de respaldo y presiona «Enviar solicitud».
+   6. El sistema valida que los campos estén completos, que el alumno no posea una solicitud activa y que registre aprobadas las materias seleccionadas.
+   7. El sistema registra la solicitud en estado «Pendiente de aprobación», emite un comprobante con el número de trámite y muestra un mensaje notificando que el pedido fue enviado correctamente.
+Extensiones:
+6a. El alumno ya posee el rol de tutor o registra una solicitud en trámite:
+6a1. El sistema informa mediante un mensaje: “Usted ya cuenta con el rol de tutor activo o posee una solicitud pendiente de revisión”.
+6a2. El caso de uso finaliza sin guardar registros duplicados.
+6b. Existen campos obligatorios incompletos o falta adjuntar documentación:
+6b1. El sistema resalta los campos requeridos faltantes e informa: “Por favor complete todos los campos obligatorios”.
+6b2. El alumno completa los datos faltantes y reintenta el envío.
+6b3. Continúa en el paso 6 del escenario principal.
+6c. El alumno no registra como aprobada la materia que desea tutorear:
+6c1. El sistema detecta que el postulante no cumple con el requisito académico para la materia elegida.
+6c2. El sistema informa: “Para postularse como tutor debe contar con la asignatura aprobada en su historia académica”.
+6c3. El sistema no permite enviar la solicitud para esa materia.
+
+
+CU-21: Gestionar cuentas de usuario y roles
+Actor primario: Administrador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+Administrador: Mantener el control de accesos, asignar roles y permisos especiales (por ejemplo, Tutor) y aplicar bloqueos y desbloqueos manuales.
+Usuario Académico: Contar con un perfil actualizado que refleje sus permisos reales en la institución.
+Precondiciones:
+El usuario se encuentra autenticado en el sistema con el rol de Administrador.
+Postcondiciones:
+Se actualizan los roles de la cuenta de usuario seleccionada.
+Si se bloquea la cuenta, su estado pasa a «Suspendido»; si se desbloquea, pasa a «Activo».
+Cada modificación se registra en el historial de auditoría (fecha, hora y administrador que realizó el cambio).
+Escenario principal:
+   1. El administrador selecciona la opción «Gestión global de usuarios» desde el panel de administración.
+   2. El sistema muestra la tabla de usuarios registrados con nombre y apellido, correo institucional, carrera/departamento, roles asignados y estado actual («Activo» o «Suspendido»). Junto a la tabla muestra el campo de búsqueda, los filtros por rol y estado, y el botón «Bloquear/Desbloquear» en cada cuenta.
+   3. El administrador selecciona un usuario, elige el nuevo rol (por ejemplo, Tutor) y presiona «Guardar cambios».
+   4. El sistema actualiza los roles de la cuenta, registra el cambio en el historial de auditoría y muestra un mensaje de confirmación.
+Extensiones:
+3a. El administrador busca o filtra usuarios:
+3a1. El administrador ingresa un término en el campo de búsqueda o selecciona un criterio de filtro (rol o estado).
+3a2. El sistema actualiza la tabla mostrando únicamente las cuentas coincidentes.
+3a3. Continúa en el paso 3 del escenario principal.
+3b. El administrador bloquea o desbloquea una cuenta:
+3b1. El administrador presiona «Bloquear/Desbloquear» sobre la cuenta seleccionada.
+3b2. El sistema muestra una ventana con el campo «Motivo» y los botones «Confirmar» y «Cancelar».
+3b3. El administrador ingresa el motivo y presiona «Confirmar».
+3b4. El sistema actualiza el estado de la cuenta a «Suspendido» (si se bloquea) o «Activo» (si se desbloquea), registra el cambio en el historial de auditoría y muestra un mensaje de confirmación.
+3b5. Continúa en el paso 2 del escenario principal.
+3c. El administrador cancela el bloqueo o desbloqueo (en 3b2):
+3c1. El administrador presiona «Cancelar».
+3c2. La cuenta conserva su estado previo sin alteraciones.
+3c3. Continúa en el paso 2 del escenario principal.
+
+
+
+
+CU-22: Resolver solicitud de préstamo de alta gama
+Actor primario: Administrador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Administrador: Revisar las solicitudes de préstamo de equipamiento de alta gama y aprobarlas o rechazarlas de forma ágil.
+   * Usuario Académico: Ser informado sobre el resultado de su solicitud.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema con el rol de Administrador.
+   * Existe al menos una solicitud de préstamo de alta gama en estado «Pendiente» .
+Postcondiciones:
+   * Si se aprueba, la solicitud queda en estado «Aprobada» y se notifica al usuario solicitante.
+   * Si se rechaza, la solicitud queda en estado «Rechazada», se libera el equipamiento reservado y se notifica al usuario solicitante.
+Escenario principal:
+   1. El administrador selecciona la opción «Solicitudes de alta gama» desde el panel principal.
+   2. El sistema muestra el listado de solicitudes de alta gama pendientes, con el usuario, su perfil, el equipamiento solicitado y el período de préstamo. Cada solicitud tiene los botones «Aprobar» y «Rechazar».
+   3. El administrador selecciona una solicitud y presiona «Aprobar».
+   4. El sistema verifica que el equipamiento se encuentre disponible para el período solicitado.
+   5. El sistema actualiza el estado de la solicitud a «Aprobada», notifica al usuario solicitante por su canal de notificación configurado y muestra un mensaje de confirmación.
+Extensiones:
+3a. El administrador rechaza la solicitud:
+3a1. El administrador presiona «Rechazar».
+3a2. El sistema actualiza el estado de la solicitud a «Rechazada», notifica al usuario solicitante por su canal de notificación configurado y muestra un mensaje de confirmación.
+3a3. Continúa en el paso 2 del escenario principal.
+4a. El equipamiento no está disponible para el período solicitado:
+4a1. El sistema informa que no se puede aprobar la solicitud porque el equipamiento no se encuentra disponible.
+4a2. La solicitud conserva su estado previo sin alteraciones.
+4a3. Continúa en el paso 2 del escenario principal.
+.
+
+
+
+
+
+
+CU-23: Consultar reportes y estadísticas
+Actor primario: Administrador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Administrador: Visualizar métricas de uso del laboratorio y analizar los datos según criterios específicos.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema con el rol de Administrador.
+Postcondiciones:
+   * La consulta no modifica el estado del sistema.
+Escenario principal:
+   1. El administrador selecciona la opción «Reportes y estadísticas» desde el panel principal.
+   2. El sistema le muestra los reportes y las estadísticas de uso del laboratorio. Junto a ellos muestra el campo de búsqueda por texto, los selectores de filtro («Rango de fechas», «Categoría de equipamiento» y «Materia/Cátedra») y el botón «Aplicar filtros».
+   3. El administrador visualiza la información.
+Extensiones:
+3a. El administrador busca reportes por texto:
+   * 3a1. El administrador ingresa un término en el campo de búsqueda (por ejemplo, nombre de materia/cátedra o categoría de equipamiento).
+   * 3a2. El sistema procesa la búsqueda y actualiza los reportes mostrando las coincidencias encontradas.
+   * 3a3. Continúa en el paso 3 del escenario principal.
+3b. El administrador filtra los reportes y las estadísticas:
+   * 3b1. El administrador selecciona uno o más filtros (rango de fechas, categoría de equipamiento o materia/cátedra) y presiona «Aplicar filtros».
+   * 3b2. El sistema actualiza los reportes y las métricas en pantalla según los parámetros seleccionados.
+   * 3b3. Continúa en el paso 3 del escenario principal.
+3c. No hay datos que coincidan con la búsqueda o los filtros aplicados (en 3a2 o 3b2):
+   * 3c1. El sistema informa que no se encontraron reportes para los criterios ingresados.
+   * 3c2. El administrador puede reajustar o limpiar los filtros y la búsqueda.
+   * 3c3. Continúa en el paso 3 del escenario principal.
+
+
+CU-24: Gestionar calendario académico
+Actor primario: Administrador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Administrador: Definir y actualizar las fechas del ciclo lectivo, los feriados y los recesos, para que el sistema calcule automáticamente los plazos de préstamos y devoluciones.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema con el rol de Administrador.
+Postcondiciones:
+   * El calendario académico queda actualizado en el sistema y se recalculan las fechas de préstamos y devoluciones que coinciden con días inhábiles.
+Escenario principal:
+   1. El administrador selecciona la opción «Calendario académico» desde el panel principal.
+   2. El sistema muestra el calendario con los períodos lectivos, recesos y feriados registrados, junto con las opciones «Configurar cuatrimestre» y «Registrar feriado/receso».
+   3. El administrador selecciona la opción que desea realizar, o un evento existente para modificarlo.
+   4. El sistema muestra el formulario correspondiente: fechas de inicio y fin del cuatrimestre, o motivo, tipo de evento («Feriado» o «Receso») y fechas.
+   5. El administrador ingresa o modifica los datos y presiona «Guardar».
+   6. El sistema valida los datos ingresados.
+   7. El sistema guarda los cambios, recalcula las fechas de préstamos y devoluciones afectadas, actualiza el calendario y muestra un mensaje de confirmación.
+Extensiones:
+5a. El administrador cancela la operación:
+   * 5a1. El administrador presiona «Cancelar».
+   * 5a2. El calendario conserva su estado previo sin alteraciones.
+   * 5a3. Continúa en el paso 2 del escenario principal.
+6a. Los datos ingresados son inválidos o están incompletos:
+   * 6a1. El sistema resalta los campos con error y muestra el mensaje correspondiente: «Dato obligatorio», «Rango de fechas inválido» (la fecha de fin no es posterior a la de inicio) o «El período se superpone con otro ya registrado».
+   * 6a2. Continúa en el paso 5 del escenario principal.
+
+
+
+
+CU-25: Consultar histórico de préstamos
+Actor primario: Colaborador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Colaborador: Acceder de forma ágil al registro histórico de préstamos del laboratorio para realizar consultas, hacer seguimiento de entregas pasadas y buscar por criterios específicos.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema con el rol de Colaborador.
+Postcondiciones:
+   * La consulta no modifica el estado del sistema.
+Escenario principal:
+   1. El colaborador selecciona la opción «Historial de préstamos» desde el panel principal.
+   2. El sistema muestra el listado histórico de préstamos registrados. Junto al listado muestra el campo de búsqueda por texto, los selectores de filtro («Tipo de equipo» y «Rango de fechas») y el botón «Aplicar filtros».
+   3. El colaborador visualiza el listado.
+Extensiones:
+3a. El colaborador busca en el historial por texto:
+   * 3a1. El colaborador ingresa un término en el campo de búsqueda (por ejemplo, nombre de usuario o equipo).
+   * 3a2. El sistema procesa la búsqueda y actualiza el listado mostrando las coincidencias encontradas.
+   * 3a3. Continúa en el paso 3 del escenario principal.
+3b. El colaborador filtra el historial de préstamos:
+   * 3b1. El colaborador selecciona uno o más filtros (tipo de equipo o rango de fechas) y presiona «Aplicar filtros».
+   * 3b2. El sistema actualiza el listado según los parámetros seleccionados.
+   * 3b3. Continúa en el paso 3 del escenario principal.
+3c. No hay préstamos que coincidan con la búsqueda o los filtros aplicados (en 3a2 o 3b2):
+   * 3c1. El sistema informa que no se encontraron préstamos para los criterios ingresados.
+   * 3c2. El colaborador puede reajustar o limpiar los filtros y la búsqueda.
+   * 3c3. Continúa en el paso 3 del escenario principal.
+
+
+
+
+CU-26: Registrar entrega de equipo
+Actor primario: Colaborador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Colaborador: Registrar de forma ágil la devolución de los préstamos de equipamiento y calificar cada equipo recibido.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema con el perfil de Colaborador.
+   * Existe al menos un préstamo en estado «Entregada» pendiente de devolución.
+Postcondiciones:
+   * El estado del préstamo se actualiza a «Devuelta» y se restituye la disponibilidad de los equipos en el inventario.
+   * Las calificaciones registradas quedan asociadas a cada equipo.
+Escenario principal:
+   1. El colaborador selecciona la opción «Devoluciones de equipamiento» desde el panel principal.
+   2. El sistema muestra el listado de préstamos entregados pendientes de devolución.
+   3. El colaborador selecciona un préstamo del listado y solicita registrar la devolución.
+   4. El sistema muestra el detalle del préstamo con los equipos prestados, la opción «Calificar» en cada equipo y el botón «Confirmar devolución».
+   5. El colaborador verifica los equipos recibidos y selecciona «Confirmar devolución».
+   6. El sistema valida que el préstamo se encuentre en estado «Entregada».
+   7. El sistema registra la devolución, actualiza el estado del préstamo a «Devuelta», y muestra un mensaje de confirmación.
+Extensiones:
+4a. El colaborador califica un equipo recibido:
+4a1. El colaborador selecciona «Calificar» en uno de los equipos del préstamo.
+4a2. El flujo continúa en CU-27: Calificar equipo.
+5a. El colaborador cancela la operación:
+5a1. El colaborador selecciona «Cancelar».
+5a2. El sistema redirige a la pantalla principal.
+
+
+CU-27: Calificar equipo
+Actor primario: Colaborador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Colaborador: Registrar de forma ágil el estado de conservación de cada equipo recibido en una devolución, con las observaciones que considere necesarias.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema con el rol de Colaborador.
+   * El colaborador se encuentra registrando la devolución de un préstamo (CU-27).
+Postcondiciones:
+   * Se registra el estado de conservación del equipo («Bueno», «Regular» o «Malo») y la nota ingresada, asociados al equipo y al préstamo.
+Escenario principal:
+   1. El colaborador selecciona «Calificar» en un equipo del préstamo desde el detalle de la devolución.
+   2. El sistema muestra el formulario de calificación con las opciones de estado («Bueno», «Regular» y «Malo»), el campo «Nota» y los botones «Guardar calificación» y «Cancelar».
+   3. El colaborador selecciona el estado del equipo e ingresa una nota.
+   4. El colaborador presiona «Guardar calificación».
+   5. El sistema valida que se haya seleccionado un estado.
+   6. El sistema registra la calificación y la nota, y vuelve al detalle de la devolución mostrándole al colaborador que  el equipo fue calificado correctamente.
+Extensiones:
+4a. El colaborador cancela la calificación:
+   * 4a1. El colaborador presiona «Cancelar».
+   * 4a2. El equipo conserva su estado previo sin alteraciones.
+   * 4a3. Vuelve al detalle de la devolución, continua en el paso 4 del escenario principal.
+5a. No se seleccionó un estado:
+   * 5a1. El sistema resalta el campo «Estado» y muestra el mensaje «Dato obligatorio».
+   * 5a2. Continúa en el paso 3 del escenario principal.
+
+
+
+
+
+
+CU-28: Autorizar renovación de préstamo regular
+Actor primario: Colaborador
+Alcance: Sistema del Laboratorio de Medios Audiovisuales.
+Stakeholders:
+   * Colaborador: Revisar las solicitudes de renovación pendientes y autorizarlas o rechazarlas de forma ágil.
+   * Usuario Académico: Ser informado sobre el resultado de su solicitud de renovación.
+Precondiciones:
+   * El usuario se encuentra autenticado en el sistema con el rol de Colaborador.
+   * Existe al menos una solicitud de extensión en estado «Pendiente de renovación».
+Postcondiciones:
+   * Si se aprueba, la fecha de devolución del préstamo se actualiza (ajustada al primer día hábil si cae en fin de semana), la solicitud queda en estado «Aprobada» y se notifica al usuario solicitante.
+   * Si se rechaza, la solicitud queda en estado «Rechazada», el préstamo conserva su fecha de devolución y se notifica al usuario solicitante.
+Escenario principal:
+   1. El colaborador selecciona la opción «Solicitudes de renovación» desde el panel principal.
+   2. El sistema muestra el listado de solicitudes de renovación pendientes, con el usuario, el equipo, la fecha de devolución actual y la nueva fecha propuesta. Cada solicitud tiene los botones «Aprobar» y «Rechazar».
+   3. El colaborador selecciona una solicitud y presiona «Aprobar».
+   4. El sistema verifica que el equipo no tenga reservas conflictivas en el nuevo período.
+   5. El sistema extiende la fecha de devolución del préstamo (si cae en fin de semana, la fija el lunes siguiente a las 09:00 hs), actualiza el estado de la solicitud a «Aprobada», notifica al usuario solicitante por su canal de notificación configurado y muestra un mensaje de confirmación.
+Extensiones:
+3a. El colaborador rechaza la solicitud:
+   * 3a1. El colaborador presiona «Rechazar».
+   * 3a2. El sistema actualiza el estado de la solicitud a «Rechazada», mantiene la fecha de devolución del préstamo, notifica al usuario solicitante por su canal de notificación configurado y muestra un mensaje de confirmación.
+   * 3a3. Continúa en el paso 2 del escenario principal.
+4a. El equipo tiene una reserva conflictiva:
+   * 4a1. El sistema informa que no se puede aprobar la renovación porque el equipo ya fue reservado por otro usuario.
+   * 4a2. La solicitud conserva su estado previo sin alteraciones.
+   * 4a3. Continúa en el paso 2 del escenario principal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DIAGRAMA DE CASOS DE USO
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DIAGRAMA DE CLASES
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+diagrama de secuencia – Caso crítico (CU-04 / CU-06 / CU-07 / CU-11)
+Reservar un aula con equipamiento: CU-11 → CU-04 (catálogo con las fechas de la reserva) → CU-07 → confirmar reserva → CU-06. Clases según el diagrama de clases del grupo.
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+diagrama de comunicacion caso critico
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+diagrama de secuencia  CU 19 inscribirse a tutoria
+Incluye filtrado opcional y alternativas: sin cupo, sanción activa y superposición horaria.
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+diagrama de comunicacion cu 18 darse de baja a una tutoria
+Validación del plazo mínimo, baja de la inscripción y liberación del cupo.

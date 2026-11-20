@@ -1,0 +1,115 @@
+﻿## Spec: Gestión de Solicitudes y Reservas del Laboratorio de Medios Audiovisuales (CU-04, CU-06, CU-07 y CU-11)
+
+
+### Contexto / Problema
+Actualmente, los pedidos de equipamiento y espacios físicos en el Laboratorio de Medios Audiovisuales se realizan de manera presencial (generando filas extensas en el pañol) o de forma informal por mensajes de WhatsApp a cualquier hora, lo que provoca descontrol de stock y falta de filtro pedagógico. Es necesario centralizar las operaciones en la plataforma web para que estudiantes y docentes puedan consultar el catálogo de equipos, solicitar préstamos de equipamiento, reservar aulas/estudios o islas de edición y gestionar el estado de sus solicitudes online, automatizando la validación de disponibilidad, permisos por gama y bloqueos antes de llegar al mostrador.
+
+
+### Objetivos
+
+
+* *Validación preventiva integral*: El 100 % de las solicitudes de préstamos y reservas de espacios se valida antes de llegar al mostrador (disponibilidad de stock o sala en la franja horaria, inexistencia de sanciones o préstamos vencidos, año de cursada/rol para gama alta y cumplimiento de plazos permitidos).
+* *Control de concurrencia y disponibilidad*: Ningún equipo ni espacio físico (estudio principal o isla de edición) queda reservado dos veces para la misma fecha y franja horaria.
+
+
+* *Visibilidad y autogestión*: Los usuarios académicos pueden explorar y filtrar el catálogo de equipamiento en tiempo real, iniciar reservas de salas con opción de anexar equipos complementarios y consultar el historial detallado de sus préstamos con acceso a extensiones o cancelaciones.
+
+
+* *Asignación de estados y notificaciones*: El 100 % de las operaciones queda en el estado inicial correcto según su tipo: «Aprobada» (reserva de espacio físico o préstamo regular que no es Materia Proyecto), «Pendiente» de aprobación del Docente a cargo (préstamo regular de Materia Proyecto) o «Pendiente» de aprobación de la Administración (equipamiento de gama alta), notificando automáticamente a los actores involucrados.
+
+
+### No-objetivos
+* La gestión de aprobación o rechazo de la solicitud por parte del docente o administrador.
+* El registro de la entrega física y la devolución de los equipos en el mostrador del pañol.
+* La ejecución del flujo interno de cancelación o extensión del préstamo (correspondientes al CU-09 y casos subsiguientes).
+* Solicitudes de usuarios externos o de otras carreras fuera del alcance inicial.
+
+
+### Requerimientos funcionales (Casos de Uso relacionados)
+
+
+* *CU-04: Consultar catálogo de equipamiento*: Permite al Usuario Académico visualizar el listado de equipos con nombre, categoría, disponibilidad y stock, buscar por término, filtrar por categoría o disponibilidad y seleccionar equipos para iniciar directamente una solicitud de préstamo (conectando con el paso 1a de CU-07).
+* *CU-06: Gestionar préstamos*: Permite al Usuario Académico consultar su listado detallado de préstamos (fecha de solicitud, equipo, fecha límite de devolución y estado actual), acceder a crear un nuevo préstamo, inspeccionar el detalle de un préstamo puntual y derivar a la solicitud de extensión o cancelación (CU-09).
+
+
+* *CU-07: Solicitar préstamo de equipamiento*: Permite al Usuario Académico registrar una solicitud de préstamo completando datos académicos y operativos («Materia/Cátedra/Proyecto», «Docente a cargo», «Fecha de retiro y fecha de devolución» y «Justificación»), agregar o quitar equipos indicando cantidades, validar reglas de negocio (exclusividad de gama, permisos de 3er año/docente, plazos, stock y bloqueos), reservar el stock y emitir las notificaciones correspondientes.
+
+
+* *CU-11: Reservar aula/estudio o isla de edición*: Permite al Usuario Académico consultar el calendario de disponibilidad de espacios físicos (estudio principal e islas de edición), filtrar por fechas y horarios, registrar reservas indicando «Materia/Proyecto» y «Finalidad de uso», validar bloqueos de cuenta o conflictos de horario (ofreciendo bloques alternativos) y vincular equipamiento complementario derivando el flujo hacia el CU-07.
+
+
+### Requerimientos no funcionales
+* *RNF-02*: El horario de retiro y devolución será de lunes a viernes de 09:00 a 20:00 hs.
+* *RNF-03*: Si el vencimiento de un préstamo cae sábado o domingo, el plazo de devolución se extiende automáticamente hasta el primer día hábil siguiente a las 9:00 hs.
+* *RNF-04*: El préstamo especial de equipamiento de alta gama debe tener un plazo mínimo de 48 horas.
+* *RNF-05*: Solo pueden solicitar préstamo especial de alta gama los alumnos de 3er año en adelante o los docentes.
+* *RNF-06*: Únicamente la administradora puede aprobar o rechazar solicitudes de préstamo especial de alta gama.
+* *RNF-07*: Las reservas de aula/estudio solo pueden realizarse de lunes a sábado, dentro del horario de apertura de la sede, pero los sábados no pueden incluir equipamiento.
+* *RNF-08*: El equipo asociado a una reserva de aula/estudio debe devolverse el mismo día.
+* *RNF-13*: Los canales disponibles para recibir notificaciones son: mail asociado a la cuenta o notificación dentro de la aplicación.
+* *RNF-14*: Las penalizaciones aplicables pueden ser: suspensión, restricción o veda.
+* *RNF-16*: El docente solo puede visualizar y aprobar/rechazar solicitudes asociadas a su propia cátedra.
+* *RNF-17*: Los estados de una solicitud podrán ser: pendiente, aprobada, entregada, devuelta, rechazada y cancelada.
+* *RNF-18*: Las solicitudes de equipamiento que no sean gama alta que puede aprobar el docente corresponden únicamente a Materias Proyecto.
+* *RNF-22*: Un equipo con una solicitud aprobada para un rango de fechas no puede figurar como disponible para ese mismo rango.
+* *RNF-24*: Los estados posibles de una cuenta de usuario son: activo, suspendido o en lista negra.
+* *RNF-25*: El sistema aprobará automáticamente los préstamos regulares que NO sean Materias Proyecto.
+* *RNF-26*: El préstamo regular tendrá una duración máxima de 48 horas.
+* *RNF-28*: El alumno va a ser suspendido temporalmente en caso de entregas tardías.
+
+
+
+
+### Criterios de aceptación
+
+
+*Catálogo y Gestión de Préstamos (CU-04 y CU-06)*
+
+
+* *Consulta y filtrado de catálogo (CU-04)*: Dado un usuario autenticado en el catálogo de equipamiento, cuando ingresa un término de búsqueda o aplica filtros de categoría y disponibilidad, entonces el sistema actualiza el listado mostrando los equipos coincidentes (o informa si no hay resultados permitiendo limpiar los filtros).
+
+
+
+
+* *Inicio de solicitud desde el catálogo (CU-04 Ext. 2a / CU-07 Ext. 1a)*: Dado un usuario consultando el catálogo, cuando selecciona equipos y presiona «Solicitar préstamo», entonces el sistema redirige al formulario de solicitud (CU-07) con los equipos seleccionados y el filtro de fechas ya precargados.
+* *Visualización y gestión de préstamos propios (CU-06)*: Dado un usuario autenticado en la sección «Préstamos de equipamiento», cuando selecciona un préstamo de su listado, entonces el sistema muestra el detalle completo con su fecha de solicitud, equipo, fecha límite de devolución, estado actual y las opciones «Solicitar extensión» y «Cancelar préstamo».
+*Solicitud de Préstamo de Equipamiento (CU-07)*
+* *Camino feliz (regular / gama media)*: Dado un usuario autenticado y activo, sin sanciones, cuando confirma una solicitud de equipos regulares para una materia que no es Materia Proyecto, con un plazo ≤ 48 hs dentro del horario hábil (lunes a viernes de 09:00 a 20:00 hs), entonces el sistema registra la solicitud en estado «Aprobada», reserva el stock, muestra el ID de confirmación y notifica al usuario.
+* *Derivación al docente (Materia Proyecto)*: Dado un usuario habilitado, cuando confirma una solicitud de equipos regulares para una Materia Proyecto, entonces el sistema la registra en estado «Pendiente», reserva los equipos en la franja indicada y notifica al solicitante y al Docente a cargo.
+* *Derivación a Administración (gama alta)*: Dado un alumno de 3er año o superior, o un docente, cuando confirma una solicitud de gama alta con un plazo ≥ 48 hs, entonces el sistema la registra en estado «Pendiente», reserva los equipos en la franja indicada y notifica al solicitante y a la Administración.
+* *Restricción de gama alta por año/rol (CU-07 Ext. 5a, RNF-05)*: Dado un alumno de 1er o 2do año, cuando intenta agregar un equipo de gama alta a la solicitud, entonces el sistema impide la acción e informa que está reservado exclusivamente para alumnos de 3er año o superior y docentes.
+* *Exclusividad de gama (CU-07 Ext. 8a)*: Dado un usuario armando una solicitud, cuando intenta confirmar combinando equipos de gama media y gama alta, entonces el sistema rechaza la operación e informa que no es posible mezclar gamas en una misma solicitud.
+* *Validación de plazos por gama (CU-07 Ext. 8b, RNF-04, RNF-26)*: Dado un usuario que ingresa las fechas de retiro y devolución, cuando solicita un plazo menor a 48 hs para gama alta, o mayor a 48 hs para préstamo regular, entonces el sistema impide confirmar e informa las condiciones de plazo que debe cumplir.
+
+
+
+
+* *Control de disponibilidad de equipos (CU-07 Ext. 8c, RNF-22)*: Dado un usuario que confirma una solicitud, cuando uno o más equipos no tienen stock suficiente para la franja solicitada, entonces el sistema detiene el registro e informa cuáles son los equipos no disponibles.
+* *Bloqueo por sanciones o préstamos vencidos (CU-07 Ext. 8d)*: Dado un usuario con sanciones vigentes (suspensión, restricción, veda) o préstamos con devolución vencida, cuando intenta confirmar una solicitud de equipos, entonces el sistema rechaza el pedido y detalla el motivo del bloqueo y la fecha de vigencia de la sanción.
+
+
+*Reserva de Espacios Físicos (CU-11)*
+
+
+* *Reserva de espacio sin equipamiento adicional (CU-11 Camino feliz)*: Dado un usuario activo sin sanciones, cuando selecciona un estudio o isla de edición disponible dentro del horario permitido (RNF-07), completa «Materia/Proyecto» y «Finalidad de uso», elige «Sin equipos adicionales» y confirma, entonces el sistema registra la reserva en estado «Aprobada», bloquea el espacio en el calendario y muestra la confirmación.
+
+
+* *Reserva de espacio con equipamiento complementario (CU-11 Ext. 5a)*: Dado un usuario realizando una reserva de aula/estudio o isla de edición (de lunes a viernes según RNF-07), cuando selecciona la opción «Agregar equipamiento», entonces el sistema vincula la operación y continúa el flujo en el CU-07 para seleccionar los equipos asociados.
+
+
+* *Conflicto de disponibilidad de sala (CU-11 Ext. 7a)*: Dado un usuario que intenta confirmar la reserva de un espacio físico, cuando la sala no posee disponibilidad en el bloque seleccionado, entonces el sistema informa el conflicto de horario y muestra bloques alternativos disponibles en el calendario para que el usuario ajuste su elección.
+
+
+* *Bloqueo de reserva de sala por sanción vigente (CU-11 Ext. 6a/7b1)*: Dado un usuario con una suspensión o bloqueo activo en su cuenta, cuando intenta confirmar la reserva de un aula/estudio o isla de edición, entonces el sistema rechaza la reserva, informa el motivo de la suspensión y cancela la operación.
+
+
+# Decisiones abiertas / Preguntas
+
+
+* [ ] *Docente a cargo*: Cuando el usuario autenticado que realiza la solicitud en el CU-07 tiene el rol de Docente, ¿el campo «Docente a cargo» se autocompleta y bloquea con su propio nombre, o se vuelve opcional?
+
+
+* [ ] *Docente en su propia Materia Proyecto*: Si el docente solicita equipamiento para una Materia Proyecto a su cargo, ¿quién aprueba la solicitud o pasa directamente a estado «Aprobada»?
+
+
+* [ ] *Equipo asociado a una reserva de aula (CU-11 Ext. 5a y RNF-08)*: Al derivar desde la reserva de sala (CU-11) hacia la solicitud de equipos (CU-07), el equipo debe devolverse el mismo día (RNF-08) y no puede solicitarse los sábados (RNF-07). ¿El sistema precarga y bloquea automáticamente las fechas de retiro y devolución en el CU-07 para que coincidan con el bloque horario del aula reservada?
