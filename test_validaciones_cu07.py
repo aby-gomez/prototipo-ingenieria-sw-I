@@ -17,6 +17,8 @@ class ValidacionesFechasCU07Test(unittest.TestCase):
         casos = [
             ("bad", "2026-11-21", "media"),
             ("2026-02-30", "2026-11-21", "media"),
+            ("2026-2-3", "2026-11-21", "media"),
+            (" 2026-11-20", "2026-11-21", "media"),
             ("", "2026-11-21", "media"),
             ("2026-11-20", "", "media"),
         ]
@@ -30,9 +32,11 @@ class ValidacionesFechasCU07Test(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("anterior al día de solicitud", mensaje)
 
-    def test_TC06_devolucion_anterior_o_no_posterior(self):
-        ok, _ = self.validar("2026-11-21", "2026-11-20", "media")
-        self.assertFalse(ok)
+    def test_TC06_devolucion_anterior_o_igual(self):
+        for devolucion in ("2026-11-20", "2026-11-21"):
+            with self.subTest(devolucion=devolucion):
+                ok, _ = self.validar("2026-11-21", devolucion, "media")
+                self.assertFalse(ok)
 
     def test_TC03_plazo_minimo_gama_alta(self):
         ok, _ = self.validar("2026-11-20", "2026-11-21", "alta")

@@ -1,4 +1,6 @@
-from datetime import datetime
+from datetime import date
+
+
 class ValidadorSolicitud:
     def __init__(self, db_path='prestamos.db'):
         self.db_path = db_path
@@ -21,22 +23,31 @@ class ValidadorSolicitud:
 
     def validar_plazos(self, fecha_retiro, fecha_devolucion, gama, fecha_actual=None):
         if fecha_actual is None:
-            fecha_actual = datetime.now().strftime("%Y-%m-%d")
+            fecha_actual = date.today().isoformat()
 
         try:
-            f_retiro = datetime.strptime(fecha_retiro, "%Y-%m-%d")
-            f_devolucion = datetime.strptime(fecha_devolucion, "%Y-%m-%d")
-            f_actual = datetime.strptime(fecha_actual, "%Y-%m-%d")
+            f_retiro = date.fromisoformat(fecha_retiro)
+            f_devolucion = date.fromisoformat(fecha_devolucion)
+            f_actual = date.fromisoformat(fecha_actual)
+            if any(
+                parsed.isoformat() != original
+                for parsed, original in (
+                    (f_retiro, fecha_retiro),
+                    (f_devolucion, fecha_devolucion),
+                    (f_actual, fecha_actual),
+                )
+            ):
+                raise ValueError
         except (TypeError, ValueError):
             return False, "Las fechas deben tener formato YYYY-MM-DD y ser fechas válidas."
 
         if f_retiro < f_actual:
             return False, "La fecha de retiro no puede ser anterior al día de solicitud."
 
-        if f_devolucion < f_retiro:
-            return False, "La fecha de devolución no puede ser anterior a la fecha de retiro."
+        if f_devolucion <= f_retiro:
+            return False, "La fecha de devolución debe ser posterior a la fecha de retiro."
 
-        plazo_horas = (f_devolucion - f_retiro).total_seconds() / 3600
+        plazo_horas = (f_devolucion - f_retiro).days * 24
         
         if gama == 'alta' and plazo_horas < 48:
             return False, "Plazo menor a 48hs no permitido para gama alta."
